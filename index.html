@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kranthi Chaithanya - Portfolio</title>
+    <link rel="icon" type="image/png" href="images/star-favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- JavaScript -->
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">KC</div>
+        <nav class="nav-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Parallax Carbon-Fiber Background -->
+    <div class="parallax-bg"></div>
+
+    <!-- Floating Animated Shapes Background -->
+    <div class="floating-shapes">
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-text-block">
+        <h1 class="hero-title">Kranthi Chaithanya</h1>
+        <h2 class="hero-subtitle">
+          Data Scientist | ML Engineer | Geospatial & Data Analyst
+        </h2>
+        <p class="hero-tagline">
+          Solving real-world challenges with AI, Data Science, Geospatial Analytics, and Cloud
+          Technologies.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-accent" id="statsBtn">Key Achievements</button>
+          <button
+            class="btn btn-outline"
+            onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"
+          >
+            View Projects
+          </button>
+        </div>
+      </div>
+      <!-- Optionally, a rotating 3D or wireframe element for a high-tech vibe -->
+      <div class="rotating-wireframe"></div>
+    </section>
+
+    <!-- Stats Modal Overlay -->
+    <div class="modal-overlay" id="statsModal">
+      <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <h2 class="modal-title">Key Achievements</h2>
+        <ul class="modal-list">
+          <li>
+            <strong>3+ years</strong> of experience in Data Science, Machine
+            Learning, and Geospatial Analytics.
+          </li>
+          <li>
+            Developed models with <strong>85%+ accuracy</strong> in complex tasks
+            (e.g., DeepFake Detection, Cancer Risk Prediction).
+          </li>
+          <li>
+            Led drone surveys and metrocount deployments to analyze campus traffic patterns, cutting peak-hour congestion by <strong>22%</strong>.
+          </li>
+          <li>
+            Implemented robust CI/CD pipelines in Google Cloud, cutting manual
+            errors by <strong>40%</strong>.
+          </li>
+          <li>
+            Mentored over <strong>50 students</strong> in advanced NLP and ML as a
+            Graduate Teaching Assistant.
+          </li>
+          <li>
+            Redesigned the institutional research website, cutting data retrieval time by <strong>30% for 500+ faculty members</strong>.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section fade-on-scroll">
+      <h2>About Me</h2>
+      <p>
+        I am a Data Scientist with a passion for developing innovative solutions
+        in Machine Learning, Deep Learning, Geospatial Analytics, and NLP. I have
+        extensive experience deploying advanced models and building web
+        applications that solve real-world challenges—from optimizing campus
+        traffic flows to predicting health risks.
+      </p>
+      <p>
+        With hands-on expertise in tools such as TensorFlow, PyTorch, Hugging Face,
+        BigQuery, Docker, Kubernetes, Terraform, and many more, I bring a blend of technical
+        skills and creative problem-solving to every project.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section fade-on-scroll">
+      <h2>Skills</h2>
+      <div class="skills-carousel">
+        <!-- Slide 1: Programming Languages -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Programming Languages</h3>
+            <div class="skills-grid">
+              <div class="skill-card">Python</div>
+              <div class="skill-card">C / C++</div>
+              <div class="skill-card">SQL</div>
+              <div class="skill-card">R</div>
+              <div class="skill-card">JavaScript</div>
+            </div>
+            <p class="skill-description">
+              Core languages that power algorithm development, data analysis, and software solutions.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/coding.png" alt="Programming Languages" />
+          </div>
+        </div>
+    
+        <!-- Slide 2: Machine Learning & Deep Learning -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Machine Learning & Deep Learning</h3>
+            <div class="skills-grid">
+              <div class="skill-card">TensorFlow</div>
+              <div class="skill-card">PyTorch</div>
+              <div class="skill-card">Scikit-learn</div>
+              <div class="skill-card">Hugging Face</div>
+              <div class="skill-card">OpenCV</div>
+              <div class="skill-card">YOLO</div>
+            </div>
+            <p class="skill-description">
+              Advanced frameworks to build predictive models and neural networks that drive innovation.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/machine-learning.png" alt="Machine Learning & Deep Learning" />
+          </div>
+        </div>
+    
+        <!-- Slide 3: NLP & LLMs -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>NLP & LLMs</h3>
+            <div class="skills-grid">
+              <div class="skill-card">spaCy</div>
+              <div class="skill-card">GPT & Transformers</div>
+              <div class="skill-card">RNN / LSTM</div>
+              <div class="skill-card">BERT</div>
+              <div class="skill-card">RAG Models</div>
+            </div>
+            <p class="skill-description">
+              Tools for processing natural language, sentiment analysis, and deploying language models.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/nlp.png" alt="NLP & LLMs" />
+          </div>
+        </div>
+    
+        <!-- Slide 4: Data Visualization & Dashboards -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Data Visualization & Dashboards</h3>
+            <div class="skills-grid">
+              <div class="skill-card">Tableau</div>
+              <div class="skill-card">Looker</div>
+              <div class="skill-card">Looker Studio</div>
+              <div class="skill-card">Grafana</div>
+              <div class="skill-card">PowerBI</div>
+            </div>
+            <p class="skill-description">
+              Tools to create interactive visualizations and dashboards that transform data into actionable insights.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/visualizations.png" alt="Data Visualization & Dashboards" />
+          </div>
+        </div>
+    
+        <!-- Slide 5: Geospatial & GIS -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Geospatial Information Systems</h3>
+            <div class="skills-grid">
+              <div class="skill-card">ArcGIS Pro</div>
+              <div class="skill-card">QGIS</div>
+              <div class="skill-card">Geo Databases</div>
+            </div>
+            <p class="skill-description">
+              Tools for spatial analysis and mapping to derive location-based insights.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/gis.png" alt="Geospatial & GIS" />
+          </div>
+        </div>
+    
+        <!-- Slide 6: Web Technologies -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Web Technologies</h3>
+            <div class="skills-grid">
+              <div class="skill-card">HTML5</div>
+              <div class="skill-card">CSS</div>
+              <div class="skill-card">JavaScript</div>
+              <div class="skill-card">Node.js</div>
+              <div class="skill-card">Angular</div>
+              <div class="skill-card">Flask</div>
+            </div>
+            <p class="skill-description">
+              Technologies for building dynamic, responsive web applications that present data-driven solutions.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/web-dev.png" alt="Web Technologies" />
+          </div>
+        </div>
+    
+        <!-- Slide 7: Cloud, DevOps & Data Warehousing -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Cloud, DevOps & Data Warehousing</h3>
+            <div class="skills-grid">
+              <div class="skill-card">Google Cloud</div>
+              <div class="skill-card">AWS</div>
+              <div class="skill-card">BigQuery</div>
+              <div class="skill-card">RedShift</div>
+              <div class="skill-card">Cloud Build</div>
+              <div class="skill-card">Docker</div>
+              <div class="skill-card">Kubernetes</div>
+              <div class="skill-card">Terraform</div>
+            </div>
+            <p class="skill-description">
+              Platforms and tools for scalable cloud computing, container orchestration, and managing large datasets.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/cloud.png" alt="Cloud, DevOps & Data Warehousing" />
+          </div>
+        </div>
+    
+        <!-- Slide 8: Databases & ETL -->
+        <div class="slide">
+          <div class="slide-left">
+            <h3>Databases & ETL</h3>
+            <div class="skills-grid">
+              <div class="skill-card">MySQL</div>
+              <div class="skill-card">PostgreSQL</div>
+              <div class="skill-card">SQL Server</div>
+              <div class="skill-card">MongoDB</div>
+              <div class="skill-card">ETL Pipelines</div>
+              <div class="skill-card">Firestore</div>
+              <div class="skill-card">Dataflow</div>
+            </div>
+            <p class="skill-description">
+              Systems and processes for data storage, transformation, and integration across diverse platforms.
+            </p>
+          </div>
+          <div class="slide-right">
+            <img src="images/databases.png" alt="Databases & ETL" />
+          </div>
+        </div>
+      </div>
+    
+      <!-- Carousel Navigation Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn prev-slide">&lt;</button>
+        <button class="carousel-btn next-slide">&gt;</button>
+      </div>
+    </section>
+    
+    
+
+    <!-- Projects Section with Filter -->
+    <section id="projects" class="projects-section fade-on-scroll">
+      <h2>Projects</h2>
+      <!-- Filter Buttons -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="nlp">NLP</button>
+        <button class="filter-btn" data-filter="gis">Geospatial & Visualization</button>
+        <button class="filter-btn" data-filter="web">Web Apps & Automation</button>
+      </div>
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Machine Learning & Deep Learning -->
+        <div class="project-card" data-category="ml">
+          <h3>Real & Fake Face Detection</h3>
+          <p>
+            Ensemble approach combining EfficientNet, SVM, and KNN enhanced with ELA
+            preprocessing to achieve robust deepfake detection with 85% accuracy.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/deepfake-detection" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="ml">
+          <h3>Cancer Risk Prediction</h3>
+          <p>
+            Utilized BRFSS data with Logistic Regression, XGBoost, and Random Forest
+            models to predict cancer risks while focusing on recall and class imbalance.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/BRFSS-Cancer-Prediction" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="ml">
+          <h3>Wine-model</h3>
+          <p>
+            A machine learning project exploring predictive relationships in wine
+            characteristics using state-of-the-art algorithms.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/wine-model" target="_blank">View Project</a>
+        </div>
+
+        <!-- Natural Language Processing -->
+        <div class="project-card" data-category="nlp">
+          <h3>AI Poetry Generator</h3>
+          <p>
+            An emotion-based poetry generator using Transformers, RNNs, and LSTM
+            models to produce contextually rich verses.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/poetry-generator" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="nlp">
+          <h3>NYSERDA Entity Detection</h3>
+          <p>
+            Web scraping with Beautiful Soup paired with Hugging Face Transformers
+            to extract energy grant data with 90% F1-score.
+          </p>
+          <a class="project-link" href="#" target="_blank">View Project</a>
+        </div>
+
+        <!-- Geospatial & Data Visualization -->
+        <div class="project-card" data-category="gis">
+          <h3>Data Visualization & Analytics Projects</h3>
+          <p>
+            A collection of GIS, Tableau, and R projects—including NYC Bike Lanes,
+            Election Mapping, Flu Vaccination Monitoring, and Spotify Trends.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/visualizations" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="gis">
+          <h3>Clarkson A2A Collaborative</h3>
+          <p>
+            Statistical analysis on roadkill data using surveys and drone/UAV imagery to
+            determine hotspots and propose safety measures.
+          </p>
+          <a class="project-link" href="https://sites.google.com/clarkson.edu/clarkson-c3g/" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="gis">
+          <h3>Town of Colton Complete Streets</h3>
+          <p>
+            Developed a comprehensive plan for complete streets through detailed survey
+            analysis and GIS visualization.
+          </p>
+          <a class="project-link" href="https://sites.google.com/clarkson.edu/clarkson-c3g/" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="gis">
+          <h3>Clarkson Traffic/Parking Dashboard</h3>
+          <p>
+            Created interactive dashboards visualizing campus traffic and parking data,
+            reducing congestion and enhancing safety.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/visualizations/blob/main/Clarkson%20Parking%20and%20Traffic%20Data%20Collection%20Phase%202.pdf" target="_blank">View Project</a>
+        </div>
+
+        <!-- Web Applications & Automation -->
+        <div class="project-card" data-category="web">
+          <h3>Social Distancer Using RSSI</h3>
+          <p>
+            Developed a wearable device alerting users when approaching crowded spaces,
+            crucial during pandemic scenarios.
+          </p>
+          <a class="project-link" href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="web">
+          <h3>Voice-Based Email in Python</h3>
+          <p>
+            Built an application to manage emails using voice commands, integrating
+            speech recognition and GTTS.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/voice-email" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="web">
+          <h3>OTT Web Platform</h3>
+          <p>
+            Designed a streaming web app similar to Netflix using ReactJS, Firebase,
+            Node.js, and Express.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/Netflix-clone" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="web">
+          <h3>Automated Instagram Content Generator</h3>
+          <p>
+            Developed a GPT-3.5 powered pipeline to automate Instagram posts with
+            optimized captions and hashtags, increasing engagement by 45%.
+          </p>
+          <a class="project-link" href="https://github.com/kc-3/ai-instabot" target="_blank">View Project</a>
+        </div>
+        <div class="project-card" data-category="web">
+          <h3>Rowing School Database App</h3>
+          <p>
+            Created a full-stack application to manage memberships, user records, and
+            revenues for a rowing school in Croatia.
+          </p>
+          <a class="project-link" href="#" target="_blank">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section fade-on-scroll">
+      <h2>Experience</h2>
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <h4>Graduate Teaching Assistant (NLP), Clarkson University</h4>
+          <p>
+            Designed hands-on assignments on text processing, vector embeddings, neural networks, RNNs/LSTMs, Transformers, Large Language Models (LLMs),
+            BERT, RAG Models, and chatbots.
+          </p>
+          <p>
+            Mentored 50+ students and developed practical projects in NLP and machine learning.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h4>Student Data Analyst @ Institutional Research, Clarkson University</h4>
+          <p>
+            Analyzed Harvard COACHE faculty satisfaction survey data using PowerBI, Python and Pandas, generating actionable insights
+            for university leadership.
+            Redesigned the institutional research website, cutting data retrieval time by 30% for 500+ faculty members.
+
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h4>C3G Data Specialist/Intern, Clarkson University</h4>
+          <p>
+            Led drone surveys and implemented real-time dashboards for campus traffic and
+            parking analytics, reducing peak-hour congestion by 22%.
+          </p>
+          <p>
+            Analyzed roadkill patterns on route 12 and 37 using Statistical methods to determine the major causes and preventive measures.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h4>Associate Data Engineer, SpringML</h4>
+          <p>
+            Built CI/CD pipelines in Google Cloud, developed Rest APIs, NLP Pipelines and visualized data on lookerstudio and looker.
+            Designed custom visualizations using d3.js . 
+          </p>
+          <p>
+            Automated workflows and cloud resource provisioning using terraform reducing manual efforts and errors by 60%.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section fade-on-scroll">
+      <h2>Contact</h2>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:kranthichaithanya3000@gmail.com"
+              >kranthichaithanya3000@gmail.com</a
+            >
+          </p>
+          <p><strong>Phone:</strong> +1 315-603-7581</p>
+          <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://linkedin.com/in/kranthi-chaithanya-thota" target="_blank"
+              >linkedin.com/in/kranthi-chaithanya-thota</a
+            >
+          </p>
+          <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/kc-3" target="_blank">github.com/kc-3</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <p>&copy; 2025 Kranthi Chaithanya. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
