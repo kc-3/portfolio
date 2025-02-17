@@ -172,6 +172,15 @@ section {
   position: relative;
 }
 
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  padding-left: 3px;
+}
+
+
 .hero-text-block {
   max-width: 600px;
   text-align: left;
