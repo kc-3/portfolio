@@ -1,518 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kranthi Chaithanya - Portfolio</title>
-    <link rel="icon" type="image/png" href="images/star-favicon.png">
+    <title>Kranthi Chaithanya Thota :: Portfolio [kct.dev]</title>
+    <link rel="icon" type="image/png" href="images/star-favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Google Fonts (Inter and Fira Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- JavaScript -->
+    <!-- JS (Defer) -->
     <script defer src="script.js"></script>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <header class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">KC</div>
-        <nav class="nav-links">
-          <a href="#hero">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+</head>
+<body>
+    <!-- Optional Subtle Background -->
+    <div class="bg-grid"></div>
+
+    <!-- Header/Navbar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#hero" class="logo">// KC3</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+             <a href="Kranthi_Chaithanya_Data_Scientist_Resume.pdf" target="_blank" class="btn-resume"><span>Resume</span><i class="fas fa-external-link-alt"></i></a> <!-- ### UPDATE PATH ### -->
+        </div>
     </header>
 
-    <!-- Parallax Carbon-Fiber Background -->
-    <div class="parallax-bg"></div>
-
-    <!-- Floating Animated Shapes Background -->
-    <div class="floating-shapes">
-      <div class="floating-circle"></div>
-      <div class="floating-circle"></div>
-      <div class="floating-circle"></div>
-      <div class="floating-circle"></div>
-      <div class="floating-circle"></div>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-      <div class="hero-text-block">
-        <h2 class="hero-intro">
-          Hello, I'm
-        </h2>
-        <h1 class="hero-title">Kranthi Chaithanya</h1>
-        <h2 class="hero-subtitle">
-          Data Scientist | ML Engineer | Geospatial & Data Analyst
-        </h2>
-        <p class="hero-tagline">
-          Solving real-world challenges with AI, Data Science, Geospatial Analytics, and Cloud
-          Technologies.
-        </p>
-        <div class="hero-buttons">
-          <button class="btn btn-accent" id="statsBtn">Key Achievements</button>
-          <button
-            class="btn btn-outline"
-            onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"
-          >
-            View Projects
-          </button>
-        </div>
-      </div>
-      <!-- Optionally, a rotating 3D or wireframe element for a high-tech vibe -->
-      <div class="rotating-wireframe"></div>
-    </section>
-
-    <!-- Stats Modal Overlay -->
-    <div class="modal-overlay" id="statsModal">
-      <div class="modal-content">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <h2 class="modal-title">Key Achievements</h2>
-        <ul class="modal-list">
-          <li>
-            <strong>3+ years</strong> of experience in Data Science, Machine
-            Learning, and Geospatial Analytics.
-          </li>
-          <li>
-            Developed models with <strong>85%+ accuracy</strong> in complex tasks
-            (e.g., DeepFake Detection, Cancer Risk Prediction).
-          </li>
-          <li>
-            Led drone surveys and metrocount deployments to analyze campus traffic patterns, cutting peak-hour congestion by <strong>22%</strong>.
-          </li>
-          <li>
-            Implemented robust CI/CD pipelines in Google Cloud, cutting manual
-            errors by <strong>40%</strong>.
-          </li>
-          <li>
-            Mentored over <strong>50 students</strong> in advanced NLP and ML as a
-            Graduate Teaching Assistant.
-          </li>
-          <li>
-            Redesigned the institutional research website, cutting data retrieval time by <strong>30% for 500+ faculty members</strong>.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- About Section -->
-    <section id="about" class="about-section fade-on-scroll">
-      <h2>About Me</h2>
-      <p>
-        I am a Data Scientist with a passion for developing innovative solutions
-        in Machine Learning, Deep Learning, Geospatial Analytics, and NLP. I have
-        extensive experience deploying advanced models and building web
-        applications that solve real-world challenges—from optimizing campus
-        traffic flows to predicting health risks.
-      </p>
-      <p>
-        With hands-on expertise in tools such as TensorFlow, PyTorch, Hugging Face,
-        BigQuery, Docker, Kubernetes, Terraform, and many more, I bring a blend of technical
-        skills and creative problem-solving to every project.
-      </p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section fade-on-scroll">
-      <h2>Skills</h2>
-      <div class="skills-carousel">
-        <!-- Slide 1: Programming Languages -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Programming Languages</h3>
-            <div class="skills-grid">
-              <div class="skill-card">Python</div>
-              <div class="skill-card">C / C++</div>
-              <div class="skill-card">SQL</div>
-              <div class="skill-card">R</div>
-              <div class="skill-card">JavaScript</div>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+             <div class="hero-content">
+                <span class="hero-line line-1">// Hello, world! My name is</span>
+                <h1 class="hero-name line-2">Kranthi Chaithanya Thota<span class="cursor">_</span></h1>
+                <h2 class="hero-title line-3"><span class="typewriter"></span><span class="cursor-small">|</span></h2>
+                <p class="hero-summary line-4 fade-in-delay">
+                    Data Scientist & Engineer building intelligent, scalable solutions with Python, ML, and Cloud infrastructure (GCP/AWS). Master's Candidate (4.0 GPA), 3+ years experience, certified in GCP & Terraform.
+                </p>
+                 <div class="hero-cta line-5 fade-in-delay">
+                    <a href="#projects" class="btn btn-primary">// View Projects</a>
+                </div>
             </div>
-            <p class="skill-description">
-              Core languages that power algorithm development, data analysis, and software solutions.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/coding.png" alt="Programming Languages" />
-          </div>
-        </div>
-    
-        <!-- Slide 2: Machine Learning & Deep Learning -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Machine Learning & Deep Learning</h3>
-            <div class="skills-grid">
-              <div class="skill-card">TensorFlow</div>
-              <div class="skill-card">PyTorch</div>
-              <div class="skill-card">Scikit-learn</div>
-              <div class="skill-card">Hugging Face</div>
-              <div class="skill-card">OpenCV</div>
-              <div class="skill-card">YOLO</div>
-            </div>
-            <p class="skill-description">
-              Advanced frameworks to build predictive models and neural networks that drive innovation.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/machine-learning.png" alt="Machine Learning & Deep Learning" />
-          </div>
-        </div>
-    
-        <!-- Slide 3: NLP & LLMs -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>NLP & LLMs</h3>
-            <div class="skills-grid">
-              <div class="skill-card">spaCy</div>
-              <div class="skill-card">GPT & Transformers</div>
-              <div class="skill-card">RNN / LSTM</div>
-              <div class="skill-card">BERT</div>
-              <div class="skill-card">RAG Models</div>
-            </div>
-            <p class="skill-description">
-              Tools for processing natural language, sentiment analysis, and deploying language models.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/nlp.png" alt="NLP & LLMs" />
-          </div>
-        </div>
-    
-        <!-- Slide 4: Data Visualization & Dashboards -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Data Visualization & Dashboards</h3>
-            <div class="skills-grid">
-              <div class="skill-card">Tableau</div>
-              <div class="skill-card">Looker</div>
-              <div class="skill-card">Looker Studio</div>
-              <div class="skill-card">Grafana</div>
-              <div class="skill-card">PowerBI</div>
-            </div>
-            <p class="skill-description">
-              Tools to create interactive visualizations and dashboards that transform data into actionable insights.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/visualizations.png" alt="Data Visualization & Dashboards" />
-          </div>
-        </div>
-    
-        <!-- Slide 5: Geospatial & GIS -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Geospatial Information Systems</h3>
-            <div class="skills-grid">
-              <div class="skill-card">ArcGIS Pro</div>
-              <div class="skill-card">QGIS</div>
-              <div class="skill-card">Geo Databases</div>
-            </div>
-            <p class="skill-description">
-              Tools for spatial analysis and mapping to derive location-based insights.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/gis.png" alt="Geospatial & GIS" />
-          </div>
-        </div>
-    
-        <!-- Slide 6: Web Technologies -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Web Technologies</h3>
-            <div class="skills-grid">
-              <div class="skill-card">HTML5</div>
-              <div class="skill-card">CSS</div>
-              <div class="skill-card">JavaScript</div>
-              <div class="skill-card">Node.js</div>
-              <div class="skill-card">Angular</div>
-              <div class="skill-card">Flask</div>
-            </div>
-            <p class="skill-description">
-              Technologies for building dynamic, responsive web applications that present data-driven solutions.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/web-dev.png" alt="Web Technologies" />
-          </div>
-        </div>
-    
-        <!-- Slide 7: Cloud, DevOps & Data Warehousing -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Cloud, DevOps & Data Warehousing</h3>
-            <div class="skills-grid">
-              <div class="skill-card">Google Cloud</div>
-              <div class="skill-card">AWS</div>
-              <div class="skill-card">BigQuery</div>
-              <div class="skill-card">RedShift</div>
-              <div class="skill-card">Cloud Build</div>
-              <div class="skill-card">Docker</div>
-              <div class="skill-card">Kubernetes</div>
-              <div class="skill-card">Terraform</div>
-            </div>
-            <p class="skill-description">
-              Platforms and tools for scalable cloud computing, container orchestration, and managing large datasets.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/cloud.png" alt="Cloud, DevOps & Data Warehousing" />
-          </div>
-        </div>
-    
-        <!-- Slide 8: Databases & ETL -->
-        <div class="slide">
-          <div class="slide-left">
-            <h3>Databases & ETL</h3>
-            <div class="skills-grid">
-              <div class="skill-card">MySQL</div>
-              <div class="skill-card">PostgreSQL</div>
-              <div class="skill-card">SQL Server</div>
-              <div class="skill-card">MongoDB</div>
-              <div class="skill-card">ETL Pipelines</div>
-              <div class="skill-card">Firestore</div>
-              <div class="skill-card">Dataflow</div>
-            </div>
-            <p class="skill-description">
-              Systems and processes for data storage, transformation, and integration across diverse platforms.
-            </p>
-          </div>
-          <div class="slide-right">
-            <img src="images/databases.png" alt="Databases & ETL" />
-          </div>
-        </div>
-      </div>
-    
-      <!-- Carousel Navigation Controls -->
-      <div class="carousel-controls">
-        <button class="carousel-btn prev-slide">&lt;</button>
-        <button class="carousel-btn next-slide">&gt;</button>
-      </div>
-    </section>
-    
-    
+        </section>
 
-    <!-- Projects Section with Filter -->
-    <section id="projects" class="projects-section fade-on-scroll">
-      <h2>Projects</h2>
-      <!-- Filter Buttons -->
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ml">Machine Learning</button>
-        <button class="filter-btn" data-filter="nlp">NLP</button>
-        <button class="filter-btn" data-filter="gis">Geospatial & Visualization</button>
-        <button class="filter-btn" data-filter="web">Web Apps & Automation</button>
-      </div>
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        <!-- Machine Learning & Deep Learning -->
-        <div class="project-card" data-category="ml">
-          <h3>Real & Fake Face Detection</h3>
-          <p>
-            Ensemble approach combining EfficientNet, SVM, and KNN enhanced with ELA
-            preprocessing to achieve robust deepfake detection with 85% accuracy.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/deepfake-detection" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="ml">
-          <h3>Cancer Risk Prediction</h3>
-          <p>
-            Utilized BRFSS data with Logistic Regression, XGBoost, and Random Forest
-            models to predict cancer risks while focusing on recall and class imbalance.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/BRFSS-Cancer-Prediction" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="ml">
-          <h3>Wine-model</h3>
-          <p>
-            A machine learning project exploring predictive relationships in wine
-            characteristics using state-of-the-art algorithms.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/wine-model" target="_blank">View Project</a>
-        </div>
+        <!-- About Section -->
+        <section id="about" class="content-wrapper fade-in-element">
+             <h3 class="section-heading">// 01. About Me</h3>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a passionate problem-solver operating at the intersection of Data Science, Machine Learning, and Cloud Engineering. My focus is on translating complex data into actionable insights and robust, production-ready systems.</p>
+                    <p>With hands-on experience spanning the full data lifecycle – from designing ETL/ELT pipelines (Airflow, Spark) and deploying cloud infrastructure (Terraform, GCP, AWS) to developing and operationalizing ML/DL models (TensorFlow, PyTorch, MLOps) – I thrive on technical challenges.</p>
+                    <p>I prioritize clean code, automation, and delivering quantifiable results, whether it's improving model accuracy (>90% F1), boosting pipeline efficiency (30%+), or reducing manual effort (40%+).</p>
+                </div>
+                 <div class="about-stats">
+                    <h4>Key Metrics & Achievements:</h4>
+                    <ul>
+                        <li><span class="stat-value count-up" data-target="3">0</span>+ Years Experience</li>
+                        <li><span class="stat-value count-up" data-target="90">0</span>%+ F1 Scores (NLP/NER)</li>
+                        <li><span class="stat-value count-up" data-target="85">0</span>%+ Accuracy (CV Models)</li>
+                        <li><span class="stat-value count-up" data-target="30">0</span>%+ Processing Efficiency Boost</li>
+                        <li><span class="stat-value count-up" data-target="70">0</span>% Reduction in Manual Setup (IaC)</li>
+                         <li><span class="stat-value count-up" data-target="22">0</span>% Congestion Reduction</li>
+                        <li><span class="stat-value count-up" data-target="50">0</span>+ Students Mentored</li>
+                        <li><span class="stat-value count-up" data-target="3">0</span>+ Cloud/IaC Certifications</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <!-- Natural Language Processing -->
-        <div class="project-card" data-category="nlp">
-          <h3>AI Poetry Generator</h3>
-          <p>
-            An emotion-based poetry generator using Transformers, RNNs, and LSTM
-            models to produce contextually rich verses.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/poetry-generator" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="nlp">
-          <h3>NYSERDA Entity Detection</h3>
-          <p>
-            Web scraping with Beautiful Soup paired with Hugging Face Transformers
-            to extract energy grant data with 90% F1-score.
-          </p>
-          <a class="project-link" href="#" target="_blank">View Project</a>
-        </div>
+        <!-- Skills Section -->
+        <section id="skills" class="content-wrapper fade-in-element">
+             <h3 class="section-heading">// 02. Technical Skills</h3>
+            <div class="skills-container">
+                 <div class="skill-group">
+                    <h4>Languages & Core</h4>
+                    <ul><li>Python</li><li>SQL</li><li>GoLang</li><li>Bash</li><li>R</li><li>JavaScript</li></ul>
+                </div>
+                 <div class="skill-group">
+                    <h4>ML / DL / AI</h4>
+                    <ul><li>TensorFlow</li><li>PyTorch</li><li>Scikit-learn</li><li>Hugging Face</li><li>spaCy</li><li>LLMs/RAG</li><li>BERT</li><li>YOLO</li><li>OpenCV</li><li>RL</li><li>Stats</li></ul>
+                </div>
+                <div class="skill-group">
+                    <h4>Cloud Platforms</h4>
+                    <ul><li>GCP (Expert)</li><li>AWS</li><li>Azure (Basic)</li><li>Vertex AI</li><li>BigQuery</li><li>Dataflow</li><li>Cloud Run</li><li>GKE</li><li>S3/GCS</li><li>RedShift/SQL</li></ul>
+                </div>
+                 <div class="skill-group">
+                    <h4>DevOps / MLOps / IaC</h4>
+                    <ul><li>Terraform</li><li>Docker</li><li>Kubernetes</li><li>CI/CD (Git, Cloud Build)</li><li>Airflow</li><li>MLflow</li><li>Monitoring</li><li>Logging</li></ul>
+                </div>
+                 <div class="skill-group">
+                    <h4>Data Eng & Databases</h4>
+                    <ul><li>ETL/ELT Design</li><li>Spark</li><li>Hadoop</li><li>Data Modeling</li><li>PostgreSQL</li><li>MySQL</li><li>SQL Server</li><li>MongoDB</li><li>Data Quality</li></ul>
+                </div>
+                <div class="skill-group">
+                    <h4>Viz & Other Tools</h4>
+                    <ul><li>Tableau</li><li>PowerBI</li><li>Looker</li><li>Grafana</li><li>D3.js</li><li>Document AI</li><li>Web Scraping</li><li>ArcGIS Pro</li></ul>
+                </div>
+            </div>
+        </section>
 
-        <!-- Geospatial & Data Visualization -->
-        <div class="project-card" data-category="gis">
-          <h3>Data Visualization & Analytics Projects</h3>
-          <p>
-            A collection of GIS, Tableau, and R projects—including NYC Bike Lanes,
-            Election Mapping, Flu Vaccination Monitoring, and Spotify Trends.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/visualizations" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="gis">
-          <h3>Clarkson A2A Collaborative</h3>
-          <p>
-            Statistical analysis on roadkill data using surveys and drone/UAV imagery to
-            determine hotspots and propose safety measures.
-          </p>
-          <a class="project-link" href="https://sites.google.com/clarkson.edu/clarkson-c3g/" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="gis">
-          <h3>Town of Colton Complete Streets</h3>
-          <p>
-            Developed a comprehensive plan for complete streets through detailed survey
-            analysis and GIS visualization.
-          </p>
-          <a class="project-link" href="https://sites.google.com/clarkson.edu/clarkson-c3g/" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="gis">
-          <h3>Clarkson Traffic/Parking Dashboard</h3>
-          <p>
-            Created interactive dashboards visualizing campus traffic and parking data,
-            reducing congestion and enhancing safety.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/visualizations/blob/main/Clarkson%20Parking%20and%20Traffic%20Data%20Collection%20Phase%202.pdf" target="_blank">View Project</a>
-        </div>
+        <!-- Experience Section -->
+        <section id="experience" class="content-wrapper fade-in-element">
+             <h3 class="section-heading">// 03. Experience</h3>
+             <div class="experience-list">
+                 <!-- Clarkson Roles -->
+                 <div class="experience-item">
+                     <div class="exp-header">
+                        <span class="exp-role">Student Data Analyst / GTA / C3G Intern</span>
+                        <span class="exp-company">@ Clarkson University</span>
+                    </div>
+                    <span class="exp-date">May 2024 – Present</span>
+                    <ul class="exp-details">
+                        <li>Analyzed institutional data (PowerBI/Python), reducing faculty data retrieval time 30%.</li>
+                        <li>Mentored 50+ students (Python/SQL/NLP); built NER pipeline (>90% F1).</li>
+                        <li>Engineered traffic pipelines (drone/metrocount), cutting congestion 22%; built Tableau dashboards.</li>
+                        <li>Deployed YOLOv8 model (95% parking detection accuracy).</li>
+                    </ul>
+                 </div>
+                 <!-- Egen/SpringML -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Associate Data Engineer</span>
+                        <span class="exp-company">@ Egen</span>
+                    </div>
+                     <span class="exp-date">Jul 2022 – Dec 2023</span>
+                    <ul class="exp-details">
+                         <li>Engineered ETL workflows (Airflow/GCP), boosting efficiency 30%.</li>
+                         <li>Automated CI/CD pipelines (GCP), reducing manual errors 40%.</li>
+                         <li>Automated infra (Terraform IaC, 50+ resources), cutting setup time 70%.</li>
+                         <li>Led patent analysis (Google Doc AI, 2k+ docs); built Looker dashboards, reducing reporting 40%.</li>
+                    </ul>
+                 </div>
+                <!-- Egen Consultant -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                         <span class="exp-role">Consultant Data Engineer</span>
+                         <span class="exp-company">@ Egen</span>
+                    </div>
+                    <span class="exp-date">Jan 2022 – Jun 2022</span>
+                     <ul class="exp-details">
+                         <li>Developed automated ETL (AppsScript, Cloud Functions, BigQuery) for dynamic data integration.</li>
+                     </ul>
+                </div>
+             </div>
+        </section>
 
-        <!-- Web Applications & Automation -->
-        <div class="project-card" data-category="web">
-          <h3>Social Distancer Using RSSI</h3>
-          <p>
-            Developed a wearable device alerting users when approaching crowded spaces,
-            crucial during pandemic scenarios.
-          </p>
-          <a class="project-link" href="#" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="web">
-          <h3>Voice-Based Email in Python</h3>
-          <p>
-            Built an application to manage emails using voice commands, integrating
-            speech recognition and GTTS.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/voice-email" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="web">
-          <h3>OTT Web Platform</h3>
-          <p>
-            Designed a streaming web app similar to Netflix using ReactJS, Firebase,
-            Node.js, and Express.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/Netflix-clone" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="web">
-          <h3>Automated Instagram Content Generator</h3>
-          <p>
-            Developed a GPT-3.5 powered pipeline to automate Instagram posts with
-            optimized captions and hashtags, increasing engagement by 45%.
-          </p>
-          <a class="project-link" href="https://github.com/kc-3/ai-instabot" target="_blank">View Project</a>
-        </div>
-        <div class="project-card" data-category="web">
-          <h3>Rowing School Database App</h3>
-          <p>
-            Created a full-stack application to manage memberships, user records, and
-            revenues for a rowing school in Croatia.
-          </p>
-          <a class="project-link" href="#" target="_blank">View Project</a>
-        </div>
-      </div>
-    </section>
+        <!-- Projects Section -->
+        <section id="projects" class="content-wrapper fade-in-element">
+            <h3 class="section-heading">// 04. Projects</h3>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section fade-on-scroll">
-      <h2>Experience</h2>
-      <div class="experience-timeline">
-        <div class="timeline-item">
-          <h4>Graduate Teaching Assistant (NLP), Clarkson University</h4>
-          <p>
-            Designed hands-on assignments on text processing, vector embeddings, neural networks, RNNs/LSTMs, Transformers, Large Language Models (LLMs),
-            BERT, RAG Models, and chatbots.
-          </p>
-          <p>
-            Mentored 50+ students and developed practical projects in NLP and machine learning.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <h4>Student Data Analyst @ Institutional Research, Clarkson University</h4>
-          <p>
-            Analyzed Harvard COACHE faculty satisfaction survey data using PowerBI, Python and Pandas, generating actionable insights
-            for university leadership.
-            Redesigned the institutional research website, cutting data retrieval time by 30% for 500+ faculty members.
+            <!-- Filter Buttons -->
+            <div class="project-filters-monokai">
+                <button class="filter-btn-monokai active" data-filter="all">All</button>
+                <button class="filter-btn-monokai" data-filter="ml-ai">ML / AI</button>
+                <button class="filter-btn-monokai" data-filter="data-eng">Data Eng</button>
+                <button class="filter-btn-monokai" data-filter="cloud-devops">Cloud / MLOps</button>
+                <button class="filter-btn-monokai" data-filter="analysis-viz">Analysis & Viz</button>
+                <button class="filter-btn-monokai" data-filter="web-other">Web / Other</button>
+            </div>
 
-          </p>
-        </div>
-        <div class="timeline-item">
-          <h4>C3G Data Specialist/Intern, Clarkson University</h4>
-          <p>
-            Led drone surveys and implemented real-time dashboards for campus traffic and
-            parking analytics, reducing peak-hour congestion by 22%.
-          </p>
-          <p>
-            Analyzed roadkill patterns on route 12 and 37 using Statistical methods to determine the major causes and preventive measures.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <h4>Associate Data Engineer, SpringML</h4>
-          <p>
-            Built CI/CD pipelines in Google Cloud, developed Rest APIs, NLP Pipelines and visualized data on lookerstudio and looker.
-            Designed custom visualizations using d3.js . 
-          </p>
-          <p>
-            Automated workflows and cloud resource provisioning using terraform reducing manual efforts and errors by 60%.
-          </p>
-        </div>
-      </div>
-    </section>
+             <div class="project-grid">
+                <!-- === ML / AI Projects === -->
+                <div class="project-item" data-category="ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">AI Therapeutic Chatbot</h4>
+                    <p class="project-desc">Full-stack chatbot (Ollama/Gemma, Flask, Voice I/O) enhancing senior mental well-being.</p>
+                    <ul class="project-tech"><li>Python</li><li>LLM</li><li>Flask</li><li>API</li></ul>
+                </div>
+                <div class="project-item" data-category="ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Healthcare RAG QA System</h4>
+                    <p class="project-desc">RAG pipeline (Transformers, Vector DBs) for accurate, context-aware healthcare QA.</p>
+                    <ul class="project-tech"><li>Hugging Face</li><li>RAG</li><li>Vector DB</li><li>NLP</li></ul>
+                </div>
+                 <div class="project-item" data-category="ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">NER Model Fine-tuning (>92% F1)</h4>
+                    <p class="project-desc">Fine-tuned BERT for domain-specific NER, achieving high performance.</p>
+                    <ul class="project-tech"><li>BERT</li><li>Hugging Face</li><li>TF</li><li>NLP</li></ul>
+                </div>
+                <div class="project-item" data-category="ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/deepfake-detection" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                    <h4 class="project-title">DeepFake Detection (85%+ Acc)</h4>
+                    <p class="project-desc">EfficientNet model; enhanced 15% via advanced preprocessing (Adaptive ELA).</p>
+                    <ul class="project-tech"><li>EfficientNet</li><li>TF</li><li>PyTorch</li><li>CV</li></ul>
+                </div>
+                 <div class="project-item" data-category="ml-ai web-other"> <!-- Added web-other category -->
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/ai-instabot" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                    <h4 class="project-title">Automated Instagram Bot (45% Eng Incr)</h4>
+                    <p class="project-desc">GPT-3.5 pipeline automating posts via Instagram API & NLP trend analysis.</p>
+                    <ul class="project-tech"><li>Python</li><li>GPT-3</li><li>API</li><li>NLP</li><li>Automation</li></ul>
+                 </div>
+                 <div class="project-item" data-category="ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">RL for Autonomous Control</h4>
+                    <p class="project-desc">Applied Reinforcement Learning in simulation to train agent for quadcopter stabilization.</p>
+                    <ul class="project-tech"><li>RL</li><li>Python</li><li>Simulation</li></ul>
+                 </div>
+                 <div class="project-item" data-category="ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">YOLOv8 Parking Detection (95% Acc)</h4>
+                    <p class="project-desc">Deployed CV model for accurate parking space detection from drone imagery.</p>
+                    <ul class="project-tech"><li>YOLOv8</li><li>CV</li><li>Python</li><li>Deployment</li></ul>
+                 </div>
+                 <div class="project-item" data-category="ml-ai analysis-viz"> <!-- Added analysis-viz category -->
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/BRFSS-Cancer-Prediction" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                     <h4 class="project-title">BRFSS Health Risk Analysis (80% Acc)</h4>
+                     <p class="project-desc">Analyzed 400k+ health records (ANOVA, Chi-Sq) to identify key risk factors using TF.</p>
+                     <ul class="project-tech"><li>Python</li><li>TensorFlow</li><li>Statistics</li><li>Healthcare</li></ul>
+                 </div>
+                  <div class="project-item" data-category="ml-ai web-other"> <!-- Added web-other category -->
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                     <h4 class="project-title">Social Distancing Alert Device</h4>
+                     <p class="project-desc">Wearable prototype using RSSI signals to alert users in crowded spaces.</p>
+                     <ul class="project-tech"><li>Hardware</li><li>Bluetooth</li><li>RSSI</li><li>IoT</li></ul>
+                 </div>
+                 <div class="project-item" data-category="ml-ai analysis-viz">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/wine-model" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a></div></div>
+                    <h4 class="project-title">Wine Quality Prediction</h4>
+                    <p class="project-desc">EDA and predictive modeling to determine factors influencing wine quality using ML algorithms.</p>
+                    <ul class="project-tech"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>ML</li></ul>
+                 </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section fade-on-scroll">
-      <h2>Contact</h2>
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <p>
-            <strong>Email:</strong>
-            <a href="mailto:kranthichaithanya3000@gmail.com"
-              >kranthichaithanya3000@gmail.com</a
-            >
-          </p>
-          <p><strong>Phone:</strong> +1 315-603-7581</p>
-          <p>
-            <strong>LinkedIn:</strong>
-            <a href="https://linkedin.com/in/kranthi-chaithanya-thota" target="_blank"
-              >linkedin.com/in/kranthi-chaithanya-thota</a
-            >
-          </p>
-          <p>
-            <strong>GitHub:</strong>
-            <a href="https://github.com/kc-3" target="_blank">github.com/kc-3</a>
-          </p>
-        </div>
-      </div>
-    </section>
+
+                <!-- === Data Engineering Projects === -->
+                 <div class="project-item" data-category="data-eng">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Scalable Cloud Data Lakehouse</h4>
+                    <p class="project-desc">Designed/Built Lakehouse (GCP/AWS), processing 10+ GB daily via Spark/Dataflow ETL.</p>
+                    <ul class="project-tech"><li>GCP</li><li>AWS</li><li>Spark</li><li>Dataflow</li><li>Airflow</li><li>ETL</li></ul>
+                </div>
+                <div class="project-item" data-category="data-eng">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Real-Time Streaming Pipeline (1k+ evt/s)</h4>
+                    <p class="project-desc">Pipeline (Pub/Sub, Dataflow/Spark) processing events to BigQuery with low latency.</p>
+                    <ul class="project-tech"><li>GCP</li><li>Pub/Sub</li><li>Dataflow</li><li>Streaming</li><li>BigQuery</li></ul>
+                </div>
+                 <div class="project-item" data-category="data-eng">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Data Warehouse Schema Design</h4>
+                    <p class="project-desc">Designed & implemented Star Schema model (SQL, BigQuery/Redshift) for efficient querying.</p>
+                    <ul class="project-tech"><li>Data Modeling</li><li>SQL</li><li>BigQuery</li><li>Redshift</li><li>DW</li></ul>
+                 </div>
+                <div class="project-item" data-category="data-eng">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Automated Data Quality Framework (60% Err Incr)</h4>
+                    <p class="project-desc">Reusable validation framework (Python/Spark, Airflow, 50+ rules), increasing error detection.</p>
+                    <ul class="project-tech"><li>Python</li><li>Spark</li><li>Airflow</li><li>Data Quality</li></ul>
+                </div>
+                 <div class="project-item" data-category="data-eng">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Big Data Pipeline Optimization (45% Runtime Red)</h4>
+                    <p class="project-desc">Optimized Spark/Hadoop batch pipeline (refactoring, partitioning) for 500 GB dataset.</p>
+                    <ul class="project-tech"><li>Spark</li><li>Hadoop</li><li>Perf Tuning</li><li>Big Data</li></ul>
+                 </div>
+                <div class="project-item" data-category="data-eng">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Data Governance/Cataloging (30% Trust Incr)</h4>
+                    <p class="project-desc">Populated Data Catalog (GCP), defined lineage, improving data discovery & trustworthiness.</p>
+                    <ul class="project-tech"><li>Data Governance</li><li>GCP Data Catalog</li><li>Metadata</li></ul>
+                 </div>
+                 <div class="project-item" data-category="data-eng ml-ai"> <!-- Multi-category -->
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Patent Data Pipeline (DocAI)</h4>
+                    <p class="project-desc">Automated pipeline using Google Document AI for patent data extraction (2k+ PDFs).</p>
+                    <ul class="project-tech"><li>GCP</li><li>Document AI</li><li>BigQuery</li><li>ETL</li><li>NLP</li></ul>
+                 </div>
+                 <div class="project-item" data-category="data-eng analysis-viz">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Automated Reporting Pipeline</h4>
+                    <p class="project-desc">E2E pipeline (Python, SQL, Airflow) extracting, loading, & visualizing in Tableau/PowerBI.</p>
+                    <ul class="project-tech"><li>Python</li><li>SQL</li><li>Airflow</li><li>Tableau</li><li>PowerBI</li></ul>
+                 </div>
+                 <div class="project-item" data-category="data-eng ml-ai">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/NYSERDA-Web-Scraping-Entity-Detection" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                     <h4 class="project-title">NYSERDA Grant Pipeline & NER</h4>
+                     <p class="project-desc">Automated scraping (Beautiful Soup) & NER (Hugging Face, 90% F1) for 10k+ grants.</p>
+                     <ul class="project-tech"><li>Web Scraping</li><li>Beautiful Soup</li><li>PostgreSQL</li><li>NER</li></ul>
+                 </div>
+
+                <!-- === Cloud / DevOps / MLOps Projects === -->
+                <div class="project-item" data-category="cloud-devops ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">ML Deployment Pipeline (70% Time Red)</h4>
+                    <p class="project-desc">Automated CI/CD (Docker, K8s, TF Serving/Cloud Run) reducing ML deployment time.</p>
+                    <ul class="project-tech"><li>MLOps</li><li>CI/CD</li><li>Docker</li><li>Kubernetes</li><li>GCP</li></ul>
+                </div>
+                <div class="project-item" data-category="cloud-devops ml-ai">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">ML Experiment Tracking (40% Faster)</h4>
+                    <p class="project-desc">Implemented MLflow/Vertex AI to track 15+ experiments, accelerating model selection.</p>
+                    <ul class="project-tech"><li>MLOps</li><li>MLflow</li><li>Vertex AI</li><li>Experiment Tracking</li></ul>
+                </div>
+                <div class="project-item" data-category="cloud-devops ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Automated ML Model Monitoring (80% Faster Detect)</h4>
+                    <p class="project-desc">Drift detection system (Stats, Cloud Monitoring), reducing detection time.</p>
+                    <ul class="project-tech"><li>MLOps</li><li>Monitoring</li><li>Python</li><li>GCP</li><li>Stats</li></ul>
+                </div>
+                 <div class="project-item" data-category="cloud-devops">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Multi-Cloud Infra (IaC, >95% Auto)</h4>
+                    <p class="project-desc">Provisioned prod infrastructure (VPC, compute, DBs) across GCP/AWS via Terraform.</p>
+                    <ul class="project-tech"><li>Terraform</li><li>IaC</li><li>GCP</li><li>AWS</li><li>Multi-Cloud</li></ul>
+                </div>
+                <div class="project-item" data-category="cloud-devops data-eng">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Serverless Event Pipeline (60% Cost Red)</h4>
+                    <p class="project-desc">Pipeline (Cloud Functions/Lambda, Pub/Sub) processing 1k+ events/sec.</p>
+                    <ul class="project-tech"><li>Serverless</li><li>GCP</li><li>AWS</li><li>Pub/Sub</li></ul>
+                </div>
+                 <div class="project-item" data-category="cloud-devops">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Automated Container App CI/CD (50% Freq Incr)</h4>
+                    <p class="project-desc">CI/CD (Cloud Build) to containerize (Docker) & deploy to K8s (GKE/EKS).</p>
+                    <ul class="project-tech"><li>CI/CD</li><li>Docker</li><li>Kubernetes</li><li>GCP</li><li>AWS</li></ul>
+                 </div>
+                <div class="project-item" data-category="cloud-devops">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Cloud Monitoring & Alerting (75% Faster MTTD)</h4>
+                    <p class="project-desc">Automated monitoring/alerting via Terraform, improving system uptime.</p>
+                    <ul class="project-tech"><li>Terraform</li><li>Monitoring</li><li>GCP</li><li>CloudWatch</li><li>Alerting</li></ul>
+                </div>
+                 <div class="project-item" data-category="cloud-devops data-eng">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Automated Cloud DB Mgmt (60% Task Red)</h4>
+                    <p class="project-desc">Terraform modules automating Cloud SQL/RDS deployment, config, backup.</p>
+                    <ul class="project-tech"><li>Terraform</li><li>GCP</li><li>AWS</li><li>Database</li><li>Automation</li></ul>
+                </div>
+                 <div class="project-item" data-category="cloud-devops">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Cloud DR & High Availability (RPO<1h, RTO<4h)</h4>
+                    <p class="project-desc">Configured HA/DR infra across regions/zones (Terraform) for business continuity.</p>
+                    <ul class="project-tech"><li>Terraform</li><li>HA</li><li>DR</li><li>GCP</li><li>AWS</li></ul>
+                 </div>
+                 <div class="project-item" data-category="cloud-devops">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Automated Cloud Secrets Mgmt</h4>
+                    <p class="project-desc">Implemented secrets management (GCP Secret Manager, Terraform), eliminating hardcoded credentials.</p>
+                    <ul class="project-tech"><li>Terraform</li><li>Secrets</li><li>GCP</li><li>Security</li></ul>
+                 </div>
+                <div class="project-item" data-category="cloud-devops">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Cloud Cost Optimization (15% Cost Red)</h4>
+                    <p class="project-desc">Analyzed spend; implemented rightsizing/scheduling (Terraform), reducing monthly costs.</p>
+                    <ul class="project-tech"><li>FinOps</li><li>Terraform</li><li>GCP</li><li>AWS</li><li>Cost</li></ul>
+                 </div>
+
+                 <!-- === Analysis & Viz Projects === -->
+                <div class="project-item" data-category="analysis-viz ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">E-commerce Customer Segmentation</h4>
+                    <p class="project-desc">Performed K-Means clustering (Python, Scikit-learn) for targeted marketing insights.</p>
+                    <ul class="project-tech"><li>Python</li><li>Scikit-learn</li><li>Clustering</li><li>EDA</li></ul>
+                 </div>
+                <div class="project-item" data-category="analysis-viz ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">A/B Testing Analysis Framework</h4>
+                    <p class="project-desc">Developed Python framework for A/B test analysis using statistical tests & visualizations.</p>
+                    <ul class="project-tech"><li>Python</li><li>Statistics</li><li>A/B Testing</li><li>Viz</li></ul>
+                </div>
+                <div class="project-item" data-category="analysis-viz ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/visualizations" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                    <h4 class="project-title">Clarkson Traffic/Parking Dashboard</h4>
+                    <p class="project-desc">Created interactive Tableau dashboards visualizing campus traffic and parking data.</p>
+                    <ul class="project-tech"><li>Tableau</li><li>GIS</li><li>Data Analysis</li><li>Dashboard</li></ul>
+                </div>
+                <div class="project-item" data-category="analysis-viz ml-ai"> <!-- Also GIS -->
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://sites.google.com/clarkson.edu/clarkson-c3g/" target="_blank" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">A2A Collaborative Analysis</h4>
+                    <p class="project-desc">Statistical analysis on roadkill data using surveys/drone imagery for hotspot determination.</p>
+                    <ul class="project-tech"><li>R</li><li>ArcGIS Pro</li><li>Statistics</li><li>GIS</li></ul>
+                </div>
+                <div class="project-item" data-category="analysis-viz"> <!-- Also GIS -->
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://sites.google.com/clarkson.edu/clarkson-c3g/" target="_blank" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Town of Colton Complete Streets</h4>
+                    <p class="project-desc">Developed comprehensive plan via survey analysis and GIS visualization.</p>
+                    <ul class="project-tech"><li>ArcGIS Pro</li><li>QGIS</li><li>Survey Analysis</li><li>GIS</li></ul>
+                </div>
+                 <div class="project-item" data-category="analysis-viz">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/visualizations" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                    <h4 class="project-title">Misc Data Visualization Projects</h4>
+                    <p class="project-desc">Collection including NYC Bike Lanes (GIS), Election Mapping (R), Spotify Trends (Python).</p>
+                    <ul class="project-tech"><li>Tableau</li><li>R</li><li>Python</li><li>GIS</li><li>D3.js</li></ul>
+                 </div>
+                 <div class="project-item" data-category="analysis-viz ml-ai">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                    <h4 class="project-title">Twitter Sentiment Dashboard (40% Report Red)</h4>
+                    <p class="project-desc">Automated sentiment pipeline (Python, NLP) visualized in Looker/Tableau.</p>
+                    <ul class="project-tech"><li>Python</li><li>NLP</li><li>Looker</li><li>Tableau</li><li>Dashboard</li></ul>
+                 </div>
+
+                 <!-- === Web / Other Projects === -->
+                 <div class="project-item" data-category="web-other">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/Netflix-clone" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                     <h4 class="project-title">OTT Web Platform (Netflix Clone)</h4>
+                    <p class="project-desc">Responsive streaming web application using React, Firebase, Node.js.</p>
+                    <ul class="project-tech"><li>React</li><li>Node.js</li><li>Firebase</li><li>Web Dev</li></ul>
+                 </div>
+                 <div class="project-item" data-category="web-other">
+                    <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="https://github.com/kc-3/voice-email" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                     <h4 class="project-title">Voice-Based Email Client</h4>
+                    <p class="project-desc">Python application enabling email management through voice commands using GTTS.</p>
+                    <ul class="project-tech"><li>Python</li><li>SpeechRecognition</li><li>GTTS</li></ul>
+                 </div>
+                 <div class="project-item" data-category="web-other">
+                     <div class="project-header"><i class="far fa-folder-open"></i><div class="project-links"><a href="#" title="Details"><i class="fas fa-external-link-alt"></i></a></div></div>
+                     <h4 class="project-title">Rowing School App</h4>
+                     <p class="project-desc">Full-stack application to manage memberships, records, and revenue.</p>
+                     <ul class="project-tech"><li>Full Stack</li><li>Database</li><li>Web App</li></ul>
+                 </div>
+
+            </div> <!-- End project-grid -->
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-wrapper fade-in-element">
+            <h3 class="section-heading">// 05. Contact</h3>
+            <div class="contact-content">
+                <h4>Let's build something great together.</h4>
+                <p>
+                    I'm actively seeking full-time roles where I can contribute my expertise in Data Science, ML, and Cloud Engineering. Whether you have a specific project in mind or just want to connect, feel free to reach out.
+                </p>
+                 <a href="mailto:kranthichaithanya3000@gmail.com" class="btn btn-primary">// Say Hello</a>
+                 <div class="social-links">
+                     <a href="https://linkedin.com/in/kranthi-chaithanya-thota" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kc-3" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <!-- Add other relevant links -->
+                 </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer-section">
-      <p>&copy; 2025 Kranthi Chaithanya. All Rights Reserved.</p>
+    <footer class="main-footer">
+        <p>Designed & Built by Kranthi Chaithanya Thota</p>
+        <p>kct@portfolio:~$ <span class="cursor-footer">_</span></p>
     </footer>
-  </body>
+
+</body>
 </html>
