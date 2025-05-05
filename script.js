@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 counter.innerText = target;
                 const parentText = counter.parentElement.textContent || "";
-                if (parentText.includes('+')) counter.innerText += '+';
-                if (parentText.includes('%')) counter.innerText += '%';
+                // if (parentText.includes('+')) counter.innerText += '+';
+                // if (parentText.includes('%')) counter.innerText += '%';
             }
         };
         requestAnimationFrame(updateCount);
