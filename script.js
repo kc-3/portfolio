@@ -1,174 +1,242 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- Intersection Observer for Fade-in Effect ---
-    const fadeElements = document.querySelectorAll('.fade-in-element');
-    const projectCards = document.querySelectorAll('.project-item'); // Target project cards specifically for stagger
-    const experienceItems = document.querySelectorAll('.experience-item'); // Target experience items specifically for stagger
+    // ── SCROLL PROGRESS BAR ──────────────────────────────────────────────
+    const progressBar = document.getElementById("scrollProgress");
+    const header = document.getElementById("mainHeader");
 
-    const observerOptions = { threshold: 0.1 }; // Trigger when 10% visible
+    window.addEventListener("scroll", () => {
+        const scrolled = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = `${(scrolled / maxScroll) * 100}%`;
+        header.classList.toggle("scrolled", scrolled > 60);
+    }, { passive: true });
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach((entry, index) => { // Use index if needed for dynamic delays
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
 
-                // Apply stagger delay specifically to project cards and experience items
-                if (entry.target.classList.contains('project-item') || entry.target.classList.contains('experience-item')) {
-                    // Calculate index relative to its type for consistent stagger
-                     const itemsOfSameType = Array.from(document.querySelectorAll(`.${entry.target.className.split(' ')[0]}`)); // Get all elements of the same base class
-                     const itemIndex = itemsOfSameType.indexOf(entry.target);
-                     entry.target.style.transitionDelay = `${itemIndex * 0.05}s`;
-                 }
+    // ── PARTICLES CANVAS ─────────────────────────────────────────────────
+    const canvas = document.getElementById("particles-canvas");
+    const ctx = canvas.getContext("2d");
+    let W, H, particles;
+    const MAX = 90;
+    const MAX_DIST = 160;
 
-                observer.unobserve(entry.target); // Animate only once
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", () => { resize(); particles.forEach(p => p.reset(true)); });
+
+    class Particle {
+        constructor() { this.reset(true); }
+        reset(init) {
+            this.x  = Math.random() * W;
+            this.y  = init ? Math.random() * H : Math.random() * H;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.r  = Math.random() * 1.5 + 0.5;
+            this.alpha = Math.random() * 0.4 + 0.1;
+        }
+        move() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > W) this.vx *= -1;
+            if (this.y < 0 || this.y > H) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,212,255,${this.alpha})`;
+            ctx.fill();
+        }
+    }
+
+    particles = Array.from({ length: MAX }, () => new Particle());
+
+    function drawLines() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < MAX_DIST) {
+                    const alpha = (1 - dist / MAX_DIST) * 0.08;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(0,212,255,${alpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
             }
-        });
-    };
+        }
+    }
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    fadeElements.forEach(el => observer.observe(el));
-    projectCards.forEach(el => observer.observe(el)); // Observe cards for stagger
-    experienceItems.forEach(el => observer.observe(el)); // Observe experience items for stagger
+    let lastTime = 0;
+    function animateParticles(ts) {
+        if (ts - lastTime < 33) { requestAnimationFrame(animateParticles); return; } // ~30fps
+        lastTime = ts;
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => { p.move(); p.draw(); });
+        drawLines();
+        requestAnimationFrame(animateParticles);
+    }
+    requestAnimationFrame(animateParticles);
 
 
-    // --- Typing Animation for Hero Title ---
-    const typewriterElement = document.querySelector('.typewriter');
-    if (typewriterElement) {
+    // ── TYPEWRITER ───────────────────────────────────────────────────────
+    const typeEl = document.querySelector(".typewriter");
+    if (typeEl) {
         const titles = [
-            "Data Scientist",
-            "ML Engineer",
-            "Cloud Engineer (GCP/AWS)",
             "Data Engineer",
-            "Problem Solver"
+            "GIS & Geospatial Engineer",
+            "Cloud Engineer (GCP/AWS)",
+            "Pipeline Architect",
+            "ML Engineer",
+            "Data Scientist"
         ];
-        let titleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 100;
-        const deletingSpeed = 60;
-        const delayBetweenTitles = 1500;
+        let ti = 0, ci = 0, deleting = false;
 
         function type() {
-            const currentTitle = titles[titleIndex];
-            let text = isDeleting
-                ? currentTitle.substring(0, charIndex - 1)
-                : currentTitle.substring(0, charIndex + 1);
-
-            typewriterElement.textContent = text;
-            charIndex += isDeleting ? -1 : 1;
-
-            let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
-
-            if (!isDeleting && charIndex === currentTitle.length) {
-                typeSpeed = delayBetweenTitles;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                titleIndex = (titleIndex + 1) % titles.length;
-                typeSpeed = typingSpeed * 1.5;
-            }
-            setTimeout(type, typeSpeed);
+            const cur = titles[ti];
+            typeEl.textContent = deleting ? cur.slice(0, ci - 1) : cur.slice(0, ci + 1);
+            ci += deleting ? -1 : 1;
+            let speed = deleting ? 55 : 95;
+            if (!deleting && ci === cur.length) { speed = 1600; deleting = true; }
+            else if (deleting && ci === 0) { deleting = false; ti = (ti + 1) % titles.length; speed = 400; }
+            setTimeout(type, speed);
         }
-        setTimeout(type, 1200); // Start after initial hero animations
+        setTimeout(type, 1400);
     }
 
-    // --- Number Counting Animation ---
-    const counterElements = document.querySelectorAll('.count-up');
-    const countObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.dataset.animated) {
-                animateCounters(entry.target);
-                entry.target.dataset.animated = "true"; // Prevent re-animating this specific element
-                // obs.unobserve(entry.target); // Unobserve after animating once
+
+    // ── SCROLL REVEAL (sections + items) ─────────────────────────────────
+    const revealSections = document.querySelectorAll(".fade-in-section");
+    const revealItems    = document.querySelectorAll(".fade-in-item");
+
+    const sectionObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add("visible"); sectionObs.unobserve(e.target); }
+        });
+    }, { threshold: 0.08 });
+    revealSections.forEach(el => sectionObs.observe(el));
+
+    const itemObs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                const siblings = Array.from(e.target.parentElement.querySelectorAll(".fade-in-item"));
+                const idx = siblings.indexOf(e.target);
+                setTimeout(() => e.target.classList.add("visible"), idx * 60);
+                itemObs.unobserve(e.target);
             }
         });
-    }, { threshold: 0.8 }); // Trigger when mostly visible
+    }, { threshold: 0.1 });
+    revealItems.forEach(el => itemObs.observe(el));
 
-    function animateCounters(counter) { // Animate single counter
-        counter.innerText = '0';
-        const target = +counter.getAttribute('data-target');
-        const duration = 1500;
-        const increment = target / (duration / 16);
 
-        const updateCount = () => {
-            const current = +counter.innerText.replace('%', '').replace('+', '');
-            if (current < target) {
-                counter.innerText = `${Math.ceil(current + increment)}`;
-                requestAnimationFrame(updateCount);
-            } else {
-                counter.innerText = target;
-                const parentText = counter.parentElement.textContent || "";
-                // if (parentText.includes('+')) counter.innerText += '+';
-                // if (parentText.includes('%')) counter.innerText += '%';
+    // ── ANIMATED COUNTERS ────────────────────────────────────────────────
+    const counters = document.querySelectorAll(".count-up");
+    const countObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting && !e.target.dataset.done) {
+                e.target.dataset.done = "1";
+                const target = +e.target.dataset.target;
+                const duration = 1800;
+                const step = target / (duration / 16);
+                let cur = 0;
+                const tick = () => {
+                    cur = Math.min(cur + step, target);
+                    e.target.textContent = Math.round(cur);
+                    if (cur < target) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
             }
-        };
-        requestAnimationFrame(updateCount);
-    }
-    counterElements.forEach(el => countObserver.observe(el)); // Observe each counter
+        });
+    }, { threshold: 0.6 });
+    counters.forEach(el => countObs.observe(el));
 
-    // --- Project Filtering Logic ---
-    const filterButtons = document.querySelectorAll('.filter-btn-monokai'); // Target Monokai filter buttons
-    const projectGridItems = document.querySelectorAll('.project-item'); // Target Monokai project cards
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Button active state
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+    // ── PROJECT FILTER ───────────────────────────────────────────────────
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
 
-            const filterValue = button.getAttribute('data-filter');
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            const filter = btn.dataset.filter;
 
-            // Filter grid items
-            projectGridItems.forEach(item => {
-                const itemCategories = item.getAttribute('data-category')?.split(' ') || []; // Get categories as array
-
-                // Check if 'all' is selected OR if any of the item's categories match the filter
-                const shouldShow = filterValue === 'all' || itemCategories.includes(filterValue);
-
-                if (shouldShow) {
-                    item.style.display = 'flex'; // Use flex as defined in Monokai CSS for project-item
-                    // Optional: Slightly re-animate visible items if needed
-                    // item.classList.remove('visible');
-                    // void item.offsetWidth; // Trigger reflow
-                    // item.classList.add('visible');
+            projectCards.forEach((card, i) => {
+                const cats = (card.dataset.category || "").split(" ");
+                const show = filter === "all" || cats.includes(filter);
+                if (show) {
+                    card.style.display = "flex";
+                    card.style.animationDelay = `${i * 0.04}s`;
+                    // Re-trigger fade
+                    card.classList.remove("visible");
+                    void card.offsetWidth;
+                    setTimeout(() => card.classList.add("visible"), i * 40);
                 } else {
-                    item.style.display = 'none';
-                    // item.classList.remove('visible'); // Ensure hidden items lose visible state if re-animating
+                    card.style.display = "none";
+                    card.classList.remove("visible");
                 }
             });
         });
     });
 
 
-    // --- Optional: Smooth scroll adjustment for fixed navbar ---
-    const headerHeight = document.querySelector('.main-header')?.offsetHeight || 60;
-    const navLinks = document.querySelectorAll('.main-nav a[href^="#"], .logo[href^="#"]'); // Target Monokai nav/logo
+    // ── MOBILE NAV TOGGLE ────────────────────────────────────────────────
+    const navToggle = document.getElementById("navToggle");
+    const mainNav   = document.getElementById("mainNav");
+    if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+            mainNav.classList.toggle("open");
+            const open = mainNav.classList.contains("open");
+            navToggle.setAttribute("aria-expanded", open);
+            const spans = navToggle.querySelectorAll("span");
+            if (open) {
+                spans[0].style.transform = "rotate(45deg) translate(5px,5px)";
+                spans[1].style.opacity   = "0";
+                spans[2].style.transform = "rotate(-45deg) translate(5px,-5px)";
+            } else {
+                spans[0].style.transform = "";
+                spans[1].style.opacity   = "";
+                spans[2].style.transform = "";
+            }
+        });
+        mainNav.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => {
+                mainNav.classList.remove("open");
+                navToggle.querySelectorAll("span").forEach(s => { s.style.transform = ""; s.style.opacity = ""; });
+            });
+        });
+    }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
 
-            if (targetElement) {
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 15;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    // ── SMOOTH SCROLL (offset for fixed header) ──────────────────────────
+    const headerH = () => document.getElementById("mainHeader")?.offsetHeight || 68;
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", e => {
+            const target = document.querySelector(a.getAttribute("href"));
+            if (target) {
+                e.preventDefault();
+                window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerH() - 12, behavior: "smooth" });
             }
         });
     });
 
-    // --- Footer Year ---
-    const yearSpan = document.querySelector('.main-footer p span'); // More specific selector if needed
-    if (yearSpan) {
-       // Check if the element is intended for the year, e.g., by id or specific class if added
-       // For now, assuming the LAST span in the FIRST p tag is the year
-       const footerYearSpan = document.querySelector('.main-footer p:first-of-type span:last-of-type'); // Example, adjust if needed
-       // OR add an ID to the span: <span id="footer-year"></span>
-       // const footerYearSpan = document.getElementById('footer-year');
-       if(footerYearSpan) {
-          footerYearSpan.textContent = new Date().getFullYear();
-       }
-    }
+
+    // ── PROJECT CARD MOUSE GLOW ──────────────────────────────────────────
+    document.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("mousemove", e => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+            card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+        });
+    });
 
 
-}); // End DOMContentLoaded
+    // ── FOOTER YEAR ──────────────────────────────────────────────────────
+    const yearEl = document.querySelector(".footer-year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+});
