@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeEl) {
         const titles = [
             "Data Engineer",
-            "GIS & Geospatial Engineer",
-            "Cloud Engineer (GCP/AWS)",
+            "Cloud Engineer · GCP / AWS",
             "Pipeline Architect",
-            "ML Engineer",
-            "Data Scientist"
+            "GenAI Applications Developer",
+            "Data Platform Engineer",
+            "GIS & Geospatial Engineer"
         ];
         let ti = 0, ci = 0, deleting = false;
 
